@@ -6,11 +6,13 @@ function convert(num) {
 
     if(num < 0) throw new Error("Negative numbers are not supported")
     
-    let output = ''
+    let numbersIntoString = ''
     for (digit of numString) {
-        output += wordsArr[digit]
+        numbersIntoString += wordsArr[digit]
     }
-    return output
+    return numbersIntoString
 }
 
-console.log(convert(10))
+let output = ''
+process.argv.slice(2).forEach(number =>  output += convert(number) + ',')
+console.log(output.slice(0, -1))
